@@ -1,0 +1,14 @@
+[default.probe]
+protocol = "Swd"
+speed = 28000
+
+[default.flashing]
+enabled = true
+
+[default.general]
+chip = "STM32L412CBUx"
+
+[default.rtt]
+enabled = true
+show_timestamps = true
+timeout = 3000

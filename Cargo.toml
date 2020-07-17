@@ -1,0 +1,54 @@
+[package]
+name = "app"
+categories = ["embedded", "no-std"]
+authors = ["Emil Fresk <emil.fresk@gmail.com>"]
+description = "Oxidize 2020 - RTIC Talk"
+keywords = ["arm", "cortex-m", "bootloader"]
+version = "0.1.0"
+edition = "2018"
+
+[dependencies]
+panic-halt = "0.2"
+cortex-m-rtic = "0.5"
+rtt-target = { version = "0.2.0", features = ["cortex-m"] }
+
+[dependencies.stm32l4xx-hal]
+git = "https://github.com/korken89/stm32l4xx-hal"
+features = ["stm32l4x2", "rt"]
+
+# this lets you use `cargo fix`!
+[[bin]]
+name = "app"
+test = false
+bench = false
+
+[profile.dev]
+opt-level = 1
+codegen-units = 16
+debug = true
+lto = false
+
+[profile.release]
+opt-level = "s"     # optimize for size
+codegen-units = 1   # better optimizations
+debug = true        # symbols are nice and they don't increase the size on Flash
+lto = true          # better optimizations
+
+# `syn` and other proc-macro crates take very long to build when optimized
+# this disables optimizations for them reducing the time it takes to build the
+# whole dependency graph by ~80%
+[profile.dev.build-override]
+codegen-units = 16
+debug = false
+debug-assertions = false
+incremental = true
+opt-level = 0
+overflow-checks = false
+
+[profile.release.build-override]
+codegen-units = 16
+debug = false
+debug-assertions = false
+incremental = true
+opt-level = 0
+overflow-checks = false

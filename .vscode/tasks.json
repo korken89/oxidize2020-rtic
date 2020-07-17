@@ -1,0 +1,149 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+		{
+			"label": "Example 1: App",
+			"type": "shell",
+			"command": "cargo",
+			"args": [
+				"embed",
+				"--release",
+				"--example",
+				"1_app",
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "Example 2: Init, Idle, Tasks",
+			"type": "shell",
+			"command": "cargo",
+			"args": [
+				"embed",
+				"--release",
+				"--example",
+				"2_init_idle_tasks",
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "Example 3: Spawn",
+			"type": "shell",
+			"command": "cargo",
+			"args": [
+				"embed",
+				"--release",
+				"--example",
+				"3_spawn",
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "Example 4: Spawn with priority",
+			"type": "shell",
+			"command": "cargo",
+			"args": [
+				"embed",
+				"--release",
+				"--example",
+				"4_spawn_with_priority",
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "Example 5: Schedule",
+			"type": "shell",
+			"command": "cargo",
+			"args": [
+				"embed",
+				"--release",
+				"--example",
+				"5_schedule",
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "Example 6: Resource locks",
+			"type": "shell",
+			"command": "cargo",
+			"args": [
+				"embed",
+				"--release",
+				"--example",
+				"6_resources_locks",
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "Example 7: Message passing",
+			"type": "shell",
+			"command": "cargo",
+			"args": [
+				"embed",
+				"--release",
+				"--example",
+				"7_message_passing",
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "Example 8: Blinky",
+			"type": "shell",
+			"command": "cargo",
+			"args": [
+				"embed",
+				"--release",
+				"--example",
+				"8_blinky",
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "Example 9: Button",
+			"type": "shell",
+			"command": "cargo",
+			"args": [
+				"embed",
+				"--release",
+				"--example",
+				"9_button",
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": []
+		}
+	]
+}
