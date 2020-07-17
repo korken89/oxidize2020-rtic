@@ -13,7 +13,7 @@ use stm32l4xx_hal as _;
 #[app(device = stm32l4xx_hal::stm32, peripherals = true, monotonic = rtic::cyccnt::CYCCNT)]
 const APP: () = {
     struct Resources {
-        // Rresources go here!
+        // Resources go here!
         nothing_for_now: (),
     }
 
