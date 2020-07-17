@@ -29,7 +29,7 @@ const APP: () = {
         // Enable logging
         rtt_init_print!();
 
-        // Schedule the task 3s into the future (the MCU runs at 4 MHz).
+        // Schedule the tasks so that the high priority task will run inside the low priority task.
         cx.schedule
             .low_prio_task(cx.start + 1_000_000.cycles())
             .ok();
@@ -39,9 +39,7 @@ const APP: () = {
 
         rprintln!("Hello from init!");
 
-        init::LateResources {
-            value: 42,
-        }
+        init::LateResources { value: 42 }
     }
 
     #[idle]
@@ -73,11 +71,11 @@ const APP: () = {
 
         // Poor man's delay. High prio will preempt somewhere in here.
         for _ in 0..1_000_000 {
-           unsafe {core::ptr::read_volatile(&0)}; 
+            unsafe { core::ptr::read_volatile(&0) };
         }
 
         let value = cx.resources.value.lock(|v| *v);
-        rprintln!("Low prio end, value = {}", value);    
+        rprintln!("Low prio end, value = {}", value);
     }
 
     // Here we list unused interrupt vectors that can be used to dispatch software tasks
