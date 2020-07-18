@@ -9,7 +9,9 @@ edition = "2018"
 
 [dependencies]
 panic-halt = "0.2"
-cortex-m-rtic = "0.5"
+cortex-m-rtic = "0.5" # The only depencency needed for RTIC
+
+# Logging dependency
 rtt-target = { version = "0.2.0", features = ["cortex-m"] }
 
 [dependencies.stm32l4xx-hal]
