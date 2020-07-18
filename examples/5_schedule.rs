@@ -8,7 +8,7 @@ use rtic::{app, cyccnt::U32Ext};
 use rtt_target::{rprintln, rtt_init_print};
 use stm32l4xx_hal as _;
 
-#[app(device = stm32l4xx_hal::stm32, peripherals = true, monotonic = rtic::cyccnt::CYCCNT)]
+#[app(device = stm32l4xx_hal::stm32, monotonic = rtic::cyccnt::CYCCNT)]
 const APP: () = {
     #[init(schedule = [hello_world_task])]
     fn init(cx: init::Context) {
