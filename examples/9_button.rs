@@ -1,4 +1,5 @@
-//! Example for the app macro.
+//! Example on using HAL to blink a LED via a button.
+//! The LED and button is a resource.
 
 #![no_main]
 #![no_std]
@@ -11,7 +12,9 @@ use stm32l4xx_hal::{
     prelude::*,
 };
 
-#[app(device = stm32l4xx_hal::stm32, monotonic = rtic::cyccnt::CYCCNT, peripherals = true)]
+#[app(device = stm32l4xx_hal::stm32,
+      monotonic = rtic::cyccnt::CYCCNT,
+      peripherals = true)]
 const APP: () = {
     struct Resources {
         led: PB13<Output<PushPull>>,
@@ -22,7 +25,8 @@ const APP: () = {
     fn init(cx: init::Context) -> init::LateResources {
         // When using schedule and a monotonic timer, remember to start the timer!
 
-        // This is the `cortex_m::Peripherals` struct without the SysTick which RTIC has taken ownership of.
+        // This is the `cortex_m::Peripherals` struct without the SysTick which
+        // RTIC has taken ownership of.
         let mut cp = cx.core;
 
         // Initialize (enable) the monotonic timer (CYCCNT)

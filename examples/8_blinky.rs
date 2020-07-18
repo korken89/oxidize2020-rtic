@@ -1,4 +1,5 @@
-//! Example for the app macro.
+//! Example on using HAL and blinking a LED.
+//! The LED is a resource.
 
 #![no_main]
 #![no_std]
@@ -11,7 +12,9 @@ use stm32l4xx_hal::{
     prelude::*,
 };
 
-#[app(device = stm32l4xx_hal::stm32, peripherals = true, monotonic = rtic::cyccnt::CYCCNT)]
+#[app(device = stm32l4xx_hal::stm32,
+      peripherals = true,
+      monotonic = rtic::cyccnt::CYCCNT)]
 const APP: () = {
     struct Resources {
         led: PB13<Output<PushPull>>,
@@ -35,8 +38,8 @@ const APP: () = {
         rtt_init_print!();
         rprintln!("Hello from init!");
 
+        // Use the HAL to get a pin to control.
         let mut rcc = pac.RCC.constrain();
-        // let mut gpioa = pac.GPIOA.split(&mut rcc.ahb2);
         let mut gpiob = pac.GPIOB.split(&mut rcc.ahb2);
 
         let mut led = gpiob

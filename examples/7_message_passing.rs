@@ -1,4 +1,5 @@
-//! Example for the app macro.
+//! Example of message passing, two tasks with different
+//! message passing queue sizes.
 
 #![no_main]
 #![no_std]
@@ -18,7 +19,7 @@ const APP: () = {
         // Print the value via message passing!
         cx.spawn.printer1(42).ok();
 
-        // This will fail!
+        // This will fail as printer1 has default capacity of 1!
         if let Err(_) = cx.spawn.printer1(43) {
             rprintln!("Second spawn failed!");
         }
@@ -42,6 +43,7 @@ const APP: () = {
     }
 
     // By adding an input parameter to the task we enable message passing!
+    // Note that there is no `capacity` defined, so it will default to 1.
     #[task]
     fn printer1(_cx: printer1::Context, val: u32) {
         rprintln!("Printer 1 says: {}", val);

@@ -1,4 +1,4 @@
-//! Example for the app macro.
+//! Example on using resources and locks to claim resources.
 
 #![no_main]
 #![no_std]

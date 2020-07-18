@@ -1,4 +1,4 @@
-//! Example for the app macro.
+//! Examples of Init, Idle and Software Tasks.
 
 #![no_main]
 #![no_std]

@@ -1,4 +1,4 @@
-//! Example for the app macro.
+//! Example on spawning a software/hardware task.
 
 #![no_main]
 #![no_std]

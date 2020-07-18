@@ -1,4 +1,4 @@
-//! Example for the app macro.
+//! Example on scheduling tasks in the future.
 
 #![no_main]
 #![no_std]

@@ -9,5 +9,5 @@ use stm32l4xx_hal as _;
 
 #[app(device = stm32l4xx_hal::stm32)]
 const APP: () = {
-    // App is written in here!
+    // RTIC app is written in here!
 };

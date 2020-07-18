@@ -1,4 +1,4 @@
-//! Example for the app macro.
+//! Example on spawning tasks with different priority.
 
 #![no_main]
 #![no_std]
