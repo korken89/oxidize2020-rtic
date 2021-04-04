@@ -15,7 +15,7 @@ cortex-m-rtic = "0.5" # The only depencency needed for RTIC
 rtt-target = { version = "0.2.0", features = ["cortex-m"] }
 
 [dependencies.stm32l4xx-hal]
-git = "https://github.com/korken89/stm32l4xx-hal"
+git = "https://github.com/stm32-rs/stm32l4xx-hal"
 features = ["stm32l4x2", "rt"]
 
 # this lets you use `cargo fix`!
